@@ -14,7 +14,7 @@ Here I will describe what i'm trying to build.
 
 -Music
 
--get rid of that god forsaken bug
+-get rid of that god forsaken bug (if needed depending on nicetohave#1)
 
 -Different Characters
 
