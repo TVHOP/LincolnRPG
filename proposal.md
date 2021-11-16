@@ -6,12 +6,24 @@ Here I will describe what i'm trying to build.
 
 ## Must Have List
 
--first
+-Multiple Levels
 
--second
+-Some semblance of a story
 
--third
+-Start Screen and End Screen
+
+-Music
+
+-get rid of that god forsaken bug
+
+-Different Characters
 
 ## Nice to Have List
 
--more things
+-Free movement on grid while still adhering to grid rules (if possible)
+
+-Sprite Characters
+
+-Enemies/Bosses
+
+-Cutscenes/Cinematic Moments??
