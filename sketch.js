@@ -8,11 +8,7 @@ let houseRoof;
 let stonePath;
 let woodFloor;
 let defaultLincoln;
-let daedricLincoln;
-let crownLincoln;
-let wilkesbooth;
-let ultraSwanson;
-let swansonBot;
+
 
 let level1, level2, level3;
 let state;
@@ -32,10 +28,6 @@ function preload() {
   woodFloor = loadImage("assets/woodfloor.png");
   houseRoof = loadImage("assets/houseroof.png");
   defaultLincoln = loadImage("assets/defaultLincoln.jpg");
-  daedricLincoln = loadImage("assets/DaedricLincoln.jpg");
-  crownLincoln = loadImage("assets/crownLincoln.jpg");
-  swansonBot = loadImage("assets/swansonBot.jpg");
-  ultraSwanson = loadImage("assets/ultraSwanson.png");
   
 }
 
@@ -163,12 +155,6 @@ function displayGrid() {
       }
       if (grid[y][x] === 600) {
         image(defaultLincoln,x*cellWidth, y*cellHeight, cellWidth, cellHeight);
-      }
-      if (grid[y][x] === 720) {
-        image(ultraSwanson,x*cellWidth, y*cellHeight, cellWidth, cellHeight);
-      }
-      if (grid[y][x] === 450) {
-        image(swansonBot,x*cellWidth, y*cellHeight, cellWidth, cellHeight);
       }
       
       
