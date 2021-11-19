@@ -1,5 +1,5 @@
 let grid = [];
-let gridSize = 20;
+let gridSize = 100;
 let cellWidth, cellHeight;
 
 //images
@@ -18,8 +18,8 @@ let playerY = 0;
 
 //loads images and maps
 function preload() {
-  level1 = loadJSON("assets/ANewDay.json");
-  level2 = loadJSON("assets/TheGloriousLegion.json");
+  // level1 = loadJSON("assets/ANewDay.json");
+  // level2 = loadJSON("assets/TheGloriousLegion.json");
   
 
 
@@ -37,7 +37,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   grid = createRandom2DArray(gridSize, gridSize);
   // grid = level1;
-  state = "level1";
+  // state = "level1";
 
 
 
@@ -54,7 +54,7 @@ function setup() {
 function draw() {
   background(220);
   displayGrid();
-  levelSwap();
+//   levelSwap();
 }
 
 
@@ -175,17 +175,17 @@ function displayGrid() {
 //   return board;
 // }
 
-function levelSwap() {
-  if (state === "level1") {
-    grid = level1;
-    if (grid[4][0] === 600) {
-      state = "level2";
-    }
-  }
-  else if (state === "level2") {
-    grid = level2;
-    playerX = 18;
-    playerY = 9;
+// function levelSwap() {
+//   if (state === "level1") {
+//     grid = level1;
+//     if (grid[4][0] === 600) {
+//       state = "level2";
+//     }
+//   }
+//   else if (state === "level2") {
+//     grid = level2;
+//     playerX = 18;
+//     playerY = 9;
     
-  }
-}
+//   }
+// }
