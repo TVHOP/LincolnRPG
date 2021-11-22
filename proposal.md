@@ -2,13 +2,13 @@
 
 ## Description
 
-Here I will describe what i'm trying to build.
+Top Down game based on the idea of Lincoln RPG. 
 
 ## Must Have List
 
--Multiple Levels
+-Multiple Levels (About 5 would be good. Creating one massive map that holds 5 different levels in one place feasible?)
 
--Some semblance of a story
+-A Story (Beginning, Middle, End. A purpose for the characters and what they are doing)
 
 -Start Screen and End Screen
 
@@ -16,11 +16,11 @@ Here I will describe what i'm trying to build.
 
 -get rid of that god forsaken bug (if needed depending on nicetohave#1)
 
--Different Characters
+-Different Storyline Characters (One player character, but different NPCs for you to interact with to some degree.)
 
 ## Nice to Have List
 
--Free movement on grid while still adhering to grid rules (if possible)
+-Free movement on grid while still adhering to grid rules (if needed)
 
 -Sprite Characters
 
