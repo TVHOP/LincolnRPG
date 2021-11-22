@@ -2,7 +2,7 @@
 
 ## Description
 
-Here I will describe what i'm trying to build.
+Top Down game based on the idea of Lincoln RPG. 
 
 ## Must Have List
 
