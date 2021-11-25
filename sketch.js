@@ -1,11 +1,17 @@
 function setup() {
-  createCanvas(800,400);
-  createSprite(400, 200, 50, 50);
+  createCanvas(windowWidth,windowHeight);
+  
+  sceneW = width + width*0.2;
+  sceneH = height + height*0.2;
+
+  marginW = width*0.4;
+  marginH = height*0.4;
 }
 
 function draw() {
   background(255,255,255);  
   drawSprites();
+  cameraboys();
 }
 
 // let grid = [];
@@ -18,15 +24,15 @@ function draw() {
 // let stonePath;
 // let woodFloor;
 // let defaultLincoln;
-// let standingGuy;
-// let walkingGuy;
+let standingGuy;
+let walkingGuy;
 
-// let sceneW;
-// let sceneH;
-// let marginW;
-// let marginH;
+let sceneW;
+let sceneH;
+let marginW;
+let marginH;
 
-// let dude;
+let dude;
 
 
 
@@ -37,28 +43,28 @@ function draw() {
 // let playerY = 0;
 
 // //loads images and maps
-// function preload() {
+function preload() {
 //   // level1 = loadJSON("assets/ANewDay.json");
 //   // level2 = loadJSON("assets/TheGloriousLegion.json");
   
 
 
-//   leafyGrass = loadImage("assets/leafygrass.png");
-//   stonePath = loadImage("assets/stonepath.png");
-//   woodFloor = loadImage("assets/woodfloor.png");
-//   houseRoof = loadImage("assets/houseroof.png");
-//   defaultLincoln = loadImage("assets/defaultLincoln.jpg");
+  //   leafyGrass = loadImage("assets/leafygrass.png");
+  //   stonePath = loadImage("assets/stonepath.png");
+  //   woodFloor = loadImage("assets/woodfloor.png");
+  //   houseRoof = loadImage("assets/houseroof.png");
+  //   defaultLincoln = loadImage("assets/defaultLincoln.jpg");
   
-//   standingGuy = loadImage("assets/testman.png");
-//   walkingGuy = loadImage("assets/testman2.png");
-// }
+  standingGuy = loadImage("assets/testman.png");
+  walkingGuy = loadImage("assets/testman2.png");
+}
 
-// function cameraboys() {
-//   camera.on();
-//   camera.zoom = 1.5;
-//   camera.position.x = dude.position.x;
-//   camera.position.y = dude.position.y;
-// }
+function cameraboys() {
+  camera.on();
+  camera.zoom = 1.5;
+  camera.position.x = dude.x;
+  camera.position.y = dude.y;
+}
 
 // function setup() {
 //   createCanvas(windowWidth, windowHeight);
@@ -73,32 +79,30 @@ function draw() {
 
 //   grid[playerY][playerX] = 600;
 
-//   sceneW = width + width*0.2;
-//   sceneH = height + height*0.2;
-
-//   marginW = width*0.4;
-//   marginH = height*0.4;
+  
 // }
 
 // function draw() {
-//   background(220);
-//   displayGrid();
-//   //   levelSwap();
+// //   background(220);
+// //   displayGrid();
+// //   //   levelSwap();
 //   cameraboys();
 
 //   drawSprites(dude);
 // }
 
-// function createDude(x,y,w,h) {
-//   dude = createWriter(x,y,w,h);
-//   dude.addAnimation("walking", standingGuy, walkingGuy);
-// }
+function createDude(x,y,w,h) {
+  dude = createSprite(x, y, w, h);
+  dude.addImage("standing", standingGuy);
+  dude = createAnimation(x,y,w,h);
+  dude.addAnimation("walking", standingGuy, walkingGuy);
+}
 
-// function moveDude() {
-//   if (keyIsDown("W")) {
-//     dude.changeAnimation("walking");
-//   }
-// }
+function moveDude() {
+  if (keyIsDown("W")) {
+    dude.changeAnimation("walking");
+  }
+}
 
 // function createRandom2DArray(rows,cols) {
 //   let board =  [];

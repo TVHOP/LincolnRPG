@@ -44,7 +44,8 @@ module.exports = {
       "getItem": true,
       "clearStorage": true,
       "removeItem": true,
-      
+      "createSprite": true,
+      "createAnimation": true,
       "remove": true,
       "canvas": true,
       "width": true,
