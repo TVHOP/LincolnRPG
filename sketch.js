@@ -1,18 +1,157 @@
-function setup() {
-  createCanvas(windowWidth,windowHeight);
-  
-  sceneW = width + width*0.2;
-  sceneH = height + height*0.2;
+//virtual camera
+//move the mouse around
+//the sprite follows the mouse but appears at the center of the sketch
+//because the camera is following it
 
-  marginW = width*0.4;
-  marginH = height*0.4;
+let dude;
+let bg;
+let frame;
+//the scene is twice the size of the canvas
+let SCENE_W = 1600;
+let SCENE_H = 800;
+
+
+function setup() {
+  createCanvas(800, 400);
+
+  //create a sprite and add the 3 animations
+  dude = createSprite(400, 200, 50, 100);
+
+  let myAnimation = dude.addAnimation('floating', 'assets/testman.png', 'assets/testman.png');
+  myAnimation.offY = 18;
+
+  dude.addAnimation('moving', 'assets/testman.png', 'assets/testman2.png');
+
+  bg = new Group();
+
+  //create some background for visual reference
+  for(let i=0; i<80; i++)
+  {
+    //create a sprite and add the 3 animations
+    let rock = createSprite(random(-width, SCENE_W+width), random(-height, SCENE_H+height));
+    //cycles through rocks 0 1 2
+    rock.addAnimation('normal', 'assets/rocks'+i%3+'.png');
+    bg.add(rock);
+  }
+
+  frame = loadImage('assets/defaultLincoln.jpg');
 }
 
 function draw() {
-  background(255,255,255);  
-  drawSprites();
-  cameraboys();
+  background(255, 255, 255);
+
+  //mouse trailer, the speed is inversely proportional to the mouse distance
+  dude.velocity.x = (camera.mouseX-dude.position.x)/20;
+  dude.velocity.y = (camera.mouseY-dude.position.y)/20;
+
+  //a camera is created automatically at the beginning
+
+  //.5 zoom is zooming out (50% of the normal size)
+  if(mouseIsPressed)
+    camera.zoom = 0.5;
+  else
+    camera.zoom = 1;
+
+  //set the camera position to the dude position
+  camera.position.x = dude.position.x;
+  camera.position.y = dude.position.y;
+
+  //limit the dude movements
+  if(dude.position.x < 0){
+    dude.position.x = 0;
+  }
+  if(dude.position.y < 0){
+    dude.position.y = 0;
+  }
+  if(dude.position.x > SCENE_W)
+    dude.position.x = SCENE_W;
+  if(dude.position.y > SCENE_H)
+    dude.position.y = SCENE_H;
+
+  //draw the scene
+  //rocks first
+  drawSprites(bg);
+
+  //shadow using p5 drawing
+  noStroke();
+  fill(0, 0, 0, 20);
+  //shadow
+  ellipse(dude.position.x, dude.position.y+90, 80, 30);
+  //character on the top
+  drawSprite(dude);
+
+  //I can turn on and off the camera at any point to restore
+  //the normal drawing coordinates, the frame will be drawn at
+  //the absolute 0,0 (try to see what happens if you don't turn it off
+  camera.off();
+  image(frame, 0, 0);
 }
+// let dude;
+// let bg;
+// let frame;
+
+// let sceneW = 1600;
+// let sceneH = 800;
+
+// let marginW;
+// let marginH;
+
+
+
+
+
+
+// function setup() {
+//   createCanvas(800,400);
+
+//   dude = createSprite(400, 200, 50, 100);
+//   let myAnimation = dude.addAnimation("walking", "assets/testman.png", "assets/testman2.png");
+//   myAnimation.offY = 18;
+  
+//   // sceneW = width + width*0.2;
+//   // sceneH = height + height*0.2;
+
+//   // marginW = width*0.4;
+//   // marginH = height*0.4;
+
+//   frame = loadImage("assets/defaultLincoln.jpg");
+// }
+
+// function draw() {
+//   background(255,255,255);  
+//   dude.velocity.x = (camera.mouseX-dude.position.x)/20;
+//   dude.velocity.y = (camera.mouseY-dude.position.y)/20;
+
+  
+
+//   camera.position.x = dude.x;
+//   camera.position.y = dude.y;
+
+//   if(dude.position.x < 0){
+//     dude.position.x = 0;
+//   }
+//   if(dude.position.y < 0){
+//     dude.position.y = 0;
+//   }
+//   if(dude.position.x > sceneW){
+//     dude.position.x = sceneW;
+//   }
+//   if(dude.position.y > sceneH){
+//     dude.position.y = sceneH;
+//   }
+
+//   noStroke();
+//   fill(0, 0, 0, 20);
+  
+//   ellipse(dude.position.x, dude.position.y+90, 80, 30);
+  
+//   drawSprite(dude);
+
+
+//   camera.off();
+//   image(frame, 0, 0);
+
+// }
 
 // let grid = [];
 // let gridSize = 100;
@@ -24,16 +163,6 @@ function draw() {
 // let stonePath;
 // let woodFloor;
 // let defaultLincoln;
-let standingGuy;
-let walkingGuy;
-
-let sceneW;
-let sceneH;
-let marginW;
-let marginH;
-
-let dude;
-
 
 
 // let level1, level2, level3;
@@ -43,7 +172,7 @@ let dude;
 // let playerY = 0;
 
 // //loads images and maps
-function preload() {
+// function preload() {
 //   // level1 = loadJSON("assets/ANewDay.json");
 //   // level2 = loadJSON("assets/TheGloriousLegion.json");
   
@@ -55,16 +184,9 @@ function preload() {
   //   houseRoof = loadImage("assets/houseroof.png");
   //   defaultLincoln = loadImage("assets/defaultLincoln.jpg");
   
-  standingGuy = loadImage("assets/testman.png");
-  walkingGuy = loadImage("assets/testman2.png");
 }
 
-function cameraboys() {
-  camera.on();
-  camera.zoom = 1.5;
-  camera.position.x = dude.x;
-  camera.position.y = dude.y;
-}
+
 
 // function setup() {
 //   createCanvas(windowWidth, windowHeight);
@@ -91,18 +213,8 @@ function cameraboys() {
 //   drawSprites(dude);
 // }
 
-function createDude(x,y,w,h) {
-  dude = createSprite(x, y, w, h);
-  dude.addImage("standing", standingGuy);
-  dude = createAnimation(x,y,w,h);
-  dude.addAnimation("walking", standingGuy, walkingGuy);
-}
 
-function moveDude() {
-  if (keyIsDown("W")) {
-    dude.changeAnimation("walking");
-  }
-}
+
 
 // function createRandom2DArray(rows,cols) {
 //   let board =  [];
