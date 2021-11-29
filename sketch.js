@@ -12,29 +12,28 @@ let SCENE_H = 800;
 
 
 function setup() {
-  createCanvas(800, 400);
+  createCanvas(windowWidth, windowHeight);
 
   //create a sprite and add the 3 animations
   dude = createSprite(400, 200, 50, 100);
 
-  let myAnimation = dude.addAnimation('floating', 'assets/testman.png', 'assets/testman.png');
+  let myAnimation = dude.addAnimation("floating", "assets/testman.png", "assets/testman.png");
   myAnimation.offY = 18;
 
-  dude.addAnimation('moving', 'assets/testman.png', 'assets/testman2.png');
+  dude.addAnimation("moving", "assets/testman.png", "assets/testman2.png");
 
   bg = new Group();
 
   //create some background for visual reference
-  for(let i=0; i<80; i++)
-  {
+  for(let i=0; i<80; i++) {
     //create a sprite and add the 3 animations
     let rock = createSprite(random(-width, SCENE_W+width), random(-height, SCENE_H+height));
     //cycles through rocks 0 1 2
-    rock.addAnimation('normal', 'assets/rocks'+i%3+'.png');
+    rock.addAnimation("normal", "assets/rocks"+i%3+".png");
     bg.add(rock);
   }
 
-  frame = loadImage('assets/defaultLincoln.jpg');
+  // frame = loadImage("assets/defaultLincoln.jpg");
 }
 
 function draw() {
@@ -47,10 +46,12 @@ function draw() {
   //a camera is created automatically at the beginning
 
   //.5 zoom is zooming out (50% of the normal size)
-  if(mouseIsPressed)
+  if(mouseIsPressed) {
     camera.zoom = 0.5;
-  else
+  }
+  else{
     camera.zoom = 1;
+  }
 
   //set the camera position to the dude position
   camera.position.x = dude.position.x;
@@ -63,10 +64,12 @@ function draw() {
   if(dude.position.y < 0){
     dude.position.y = 0;
   }
-  if(dude.position.x > SCENE_W)
+  if(dude.position.x > SCENE_W) {
     dude.position.x = SCENE_W;
-  if(dude.position.y > SCENE_H)
+  }
+  if(dude.position.y > SCENE_H) {
     dude.position.y = SCENE_H;
+  }
 
   //draw the scene
   //rocks first
@@ -108,11 +111,11 @@ function draw() {
 //   let myAnimation = dude.addAnimation("walking", "assets/testman.png", "assets/testman2.png");
 //   myAnimation.offY = 18;
   
-//   // sceneW = width + width*0.2;
-//   // sceneH = height + height*0.2;
+//   sceneW = width + width*0.2;
+//   sceneH = height + height*0.2;
 
-//   // marginW = width*0.4;
-//   // marginH = height*0.4;
+//   marginW = width*0.4;
+//   marginH = height*0.4;
 
 //   frame = loadImage("assets/defaultLincoln.jpg");
 // }
@@ -171,20 +174,19 @@ function draw() {
 // let playerX = 1;
 // let playerY = 0;
 
-// //loads images and maps
+// loads images and maps
 // function preload() {
 //   // level1 = loadJSON("assets/ANewDay.json");
 //   // level2 = loadJSON("assets/TheGloriousLegion.json");
   
 
 
-  //   leafyGrass = loadImage("assets/leafygrass.png");
-  //   stonePath = loadImage("assets/stonepath.png");
-  //   woodFloor = loadImage("assets/woodfloor.png");
-  //   houseRoof = loadImage("assets/houseroof.png");
-  //   defaultLincoln = loadImage("assets/defaultLincoln.jpg");
-  
-}
+//    leafyGrass = loadImage("assets/leafygrass.png");
+//    stonePath = loadImage("assets/stonepath.png");
+//    woodFloor = loadImage("assets/woodfloor.png");
+//    houseRoof = loadImage("assets/houseroof.png");
+//    defaultLincoln = loadImage("assets/defaultLincoln.jpg");
+// }
 
 
 
