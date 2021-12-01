@@ -44,11 +44,20 @@ module.exports = {
       "getItem": true,
       "clearStorage": true,
       "removeItem": true,
+
+
+      //Variables/Terms added by me to avoid red underlines
+
       "createSprite": true,
       "drawSprites": true,
       "drawSprite": true,
       "createAnimation": true,
       "camera.zoom": true,
+      "Group": true,
+
+
+
+
       "remove": true,
       "canvas": true,
       "width": true,
