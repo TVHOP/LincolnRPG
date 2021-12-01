@@ -14,9 +14,6 @@ Top Down game based on the idea of Lincoln RPG.
 
 -Music
 
--get rid of that god forsaken bug (if needed depending on nicetohave#1)
-
--Different Storyline Characters (One player character, but different NPCs for you to interact with to some degree.)
 
 ## Nice to Have List
 
@@ -27,3 +24,5 @@ Top Down game based on the idea of Lincoln RPG.
 -Enemies/Bosses
 
 -Cutscenes/Cinematic Moments??
+
+-Different Storyline Characters (One player character, but different NPCs for you to interact with to some degree.)
