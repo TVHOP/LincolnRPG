@@ -1,48 +1,4 @@
 
-
-
-
-// let image1;
-
-// function preload() {
-//   image1 = loadImage("assets/logo.png");
-// }
-
-
-
-
-
-
-
-
-// function setup() {
-//   createCanvas(800, 400);
-// }
-
-// function draw() {
-//   background(255, 255, 255);
-
-//   fill(0);
-//   textAlign(CENTER);
-//   text("Click to create a new sprite", width/2, height/2);
-//   //draw all the sprites added to the sketch so far
-//   //the positions will be updated automatically at every cycle
-//   drawSprites();
-// }
-
-// function mousePressed() {
-
-//   //create a sprite at the mouse position and store it in a temporary variable
-//   let image1 = createSprite(image1);
-//   //if no image or animation is asociated it will be a rectancle of the specified size
-//   //and a random color
-
-//   //now you can use the variable to set properties
-//   //e.g. a random velocity on the x and y coordinates
-//   image1.velocity.x = random(-5, 5);
-//   image1.velocity.y = random(-5, 5);
-// }
-
 let dude;
 let bg;
 let frame;
@@ -55,7 +11,6 @@ let sCENE_H = 800;
 function preload() {
   image1 = loadImage("assets/testman.png");
   image2 = loadImage("assets/testman2.png");
-  // image3 = loadImage("assets/testman2.png");
 }
 
 
@@ -139,7 +94,7 @@ function draw() {
 
   
 
-  // limit the dude movements
+  // limits movement of dude
   // if(dude.position.x < 0) {
   //   dude.position.x = 0;
   // }
@@ -160,7 +115,7 @@ function draw() {
   //shadow using p5 drawing
   noStroke();
   fill(0, 0, 0, 20);
-  //shadow
+  //shadow under dude
   ellipse(dude.position.x, dude.position.y+90, 80, 30);
   //character on the top
   drawSprite(dude);
