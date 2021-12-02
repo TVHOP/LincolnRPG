@@ -17,6 +17,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  document.addEventListener("contextmenu", event => event.preventDefault())
 
   //create a sprite and add the 3 animations
   dude = createSprite(400, 200, 50, 100);
@@ -81,8 +82,10 @@ function draw() {
   //a camera is created automatically at the beginning
 
   //.5 zoom is zooming out (50% of the normal size)
-  if(keyIsDown(90)) {
-    camera.zoom = 0.1;
+  if(mouseIsPressed) {
+    if (mouseButton === RIGHT) {
+      camera.zoom = 0.1;
+    }
   }
   else {
     camera.zoom = 0.5;
