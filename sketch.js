@@ -6,21 +6,24 @@ let image1;
 let image2;
 let RUN1;
 let RUN2;
+
+let mapbeta;
 //the scene is twice the size of the canvas
-let sCENE_W = 1600;
-let sCENE_H = 800;
+let sCENE_W = 2000;
+let sCENE_H = 2000;
 
 function preload() {
   image1 = loadImage("assets/testman.png");
   image2 = loadImage("assets/testman2.png");
   RUN1 = loadImage("assets/RUN_1.png");
   RUN2 = loadImage("assets/RUN_2.png");
+  mapbeta = loadImage("assets/mapbeta1.png");
 }
 
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1000, 1000);
   document.addEventListener("contextmenu", event => event.preventDefault());
 
   //create a sprite and add the 3 animations
@@ -100,7 +103,7 @@ function moveTest() {
 
 
 function draw() {
-  background(255, 255, 255);
+  background(255,255,255);
 
   //mouse trailer, the speed is inversely proportional to the mouse distance
   // dude.velocity.x = (camera.mouseX-dude.position.x)/20;
@@ -156,7 +159,7 @@ function draw() {
   //the normal drawing coordinates, the frame will be drawn at
   //the absolute 0,0 (try to see what happens if you don't turn it off
   camera.on();
-  image(frame, 0, 0);
+  image(mapbeta, 1000, 1000);
 }
 // function setup() {
 //   createCanvas(800,400);
