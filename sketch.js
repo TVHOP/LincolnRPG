@@ -4,6 +4,8 @@ let bg;
 let frame;
 let image1;
 let image2;
+let RUN1;
+let RUN2;
 //the scene is twice the size of the canvas
 let sCENE_W = 1600;
 let sCENE_H = 800;
@@ -11,13 +13,15 @@ let sCENE_H = 800;
 function preload() {
   image1 = loadImage("assets/testman.png");
   image2 = loadImage("assets/testman2.png");
+  RUN1 = loadImage("assets/RUN_1.png");
+  RUN2 = loadImage("assets/RUN_2.png");
 }
 
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  document.addEventListener("contextmenu", event => event.preventDefault())
+  document.addEventListener("contextmenu", event => event.preventDefault());
 
   //create a sprite and add the 3 animations
   dude = createSprite(400, 200, 50, 100);
@@ -26,6 +30,7 @@ function setup() {
   // myAnimation.offY = 18;
 
   dude.addAnimation("standing", "assets/testman.png");
+  dude.addAnimation("sprintleft", RUN1, RUN2);
 
   bg = new Group();
 
@@ -44,7 +49,13 @@ function setup() {
 }
 
 function moveTest() {
+  //Up Movement, and Sprint Up Movement
   if (keyIsDown(87)) {
+    if (keyIsDown(16)) {
+      dude.changeAnimation("moving");
+      dude.position.y -= 11;
+      console.log("Wsprint");
+    }
     dude.changeAnimation("moving");
     dude.position.y -= 7;
     console.log("w");
@@ -52,20 +63,38 @@ function moveTest() {
   else {
     dude.changeAnimation("standing");
   }
+  // Right Movement, and Sprint Right Movement
   if (keyIsDown(65)) {
+    if (keyIsDown(16)) {
+      dude.changeAnimation("moving");
+      dude.position.x -= 11;
+      console.log("Asprint");
+    }
     dude.changeAnimation("moving");
     dude.position.x -= 7;
     console.log("a");
   }
+  // Down Movement, and Sprint Down Movement
   if (keyIsDown(83)) {
+    if (keyIsDown(16)) {
+      dude.changeAnimation("moving");
+      dude.position.y += 11;
+      console.log("Ssprint");
+    }
     dude.changeAnimation("moving");
     dude.position.y += 7;
     console.log("s");
   }
+  // Left Movement, and Sprint Left Movement
   if (keyIsDown(68)) {
     dude.changeAnimation("moving");
     dude.position.x += 7;
     console.log("d");
+  }
+  if (keyIsDown(16) && keyIsDown(68)) {
+    dude.changeAnimation("sprintleft");
+    dude.position.x += 11;
+    console.log("Dsprint");
   }
 }
 
