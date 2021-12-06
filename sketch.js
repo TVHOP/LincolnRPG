@@ -25,8 +25,8 @@ function setup() {
   
   document.addEventListener("contextmenu", event => event.preventDefault());
 
-  let sCENE_W = width + width*0.2;
-   let sCENE_H = height + height*0.2;
+  let sceneW = width + width*0.2;
+  let sceneH = height + height*0.2;
 
 
   //create a sprite and add the 3 animations
@@ -43,7 +43,7 @@ function setup() {
   // create some background for visual reference
   // for(let i=0; i<80; i++) {
   //   //create a sprite and add the 3 animations
-  //   let rock = createSprite(random(-width, sCENE_W+width), random(-height, sCENE_H+height));
+  //   let rock = createSprite(random(-width, sceneW+width), random(-height, sceneH+height));
   //   //cycles through rocks 0 1 2
   //   // rock.addAnimation("normal", "assets/BarthalamewRoberts.png");
   //   bg.add(rock);
@@ -138,11 +138,11 @@ function draw() {
   if(dude.position.y < 0) {
     dude.position.y = 0;
   }
-  if(dude.position.x > sCENE_W) {
-    dude.position.x = sCENE_W;
+  if(dude.position.x > sceneW) {
+    dude.position.x = sceneW;
   }
-  if(dude.position.y > sCENE_H) {
-    dude.position.y = sCENE_H;
+  if(dude.position.y > sceneH) {
+    dude.position.y = sceneH;
   }
 
   //draw the scene
