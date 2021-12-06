@@ -9,8 +9,6 @@ let RUN2;
 
 let mapbeta;
 //the scene is twice the size of the canvas
-let sCENE_W = 2000;
-let sCENE_H = 2000;
 
 function preload() {
   image1 = loadImage("assets/testman.png");
@@ -27,6 +25,10 @@ function setup() {
   
   document.addEventListener("contextmenu", event => event.preventDefault());
 
+  let sCENE_W = width + width*0.2;
+   let sCENE_H = height + height*0.2;
+
+
   //create a sprite and add the 3 animations
   dude = createSprite(400, 200, 50, 100);
 
@@ -36,7 +38,7 @@ function setup() {
   dude.addAnimation("standing", "assets/testman.png");
   dude.addAnimation("sprintleft", RUN1, RUN2);
 
-  bg = new Group();
+  // bg = new Group();
 
   // create some background for visual reference
   // for(let i=0; i<80; i++) {
@@ -47,7 +49,7 @@ function setup() {
   //   bg.add(rock);
   // }
 
-  frame = loadImage("assets/walter.png");
+  // frame = loadImage("assets/walter.png");
 
   
 }
@@ -130,20 +132,18 @@ function draw() {
   camera.position.y = dude.position.y;
 
   
-
-  // limits movement of dude
-  // if(dude.position.x < 0) {
-  //   dude.position.x = 0;
-  // }
-  // if(dude.position.y < 0) {
-  //   dude.position.y = 0;
-  // }
-  // if(dude.position.x > sCENE_W) {
-  //   dude.position.x = sCENE_W;
-  // }
-  // if(dude.position.y > sCENE_H) {
-  //   dude.position.y = sCENE_H;
-  // }
+  if(dude.position.x < 0) {
+    dude.position.x = 0;
+  }
+  if(dude.position.y < 0) {
+    dude.position.y = 0;
+  }
+  if(dude.position.x > sCENE_W) {
+    dude.position.x = sCENE_W;
+  }
+  if(dude.position.y > sCENE_H) {
+    dude.position.y = sCENE_H;
+  }
 
   //draw the scene
   //rocks first
@@ -160,7 +160,7 @@ function draw() {
   //I can turn on and off the camera at any point to restore
   //the normal drawing coordinates, the frame will be drawn at
   //the absolute 0,0 (try to see what happens if you don't turn it off
-  camera.on();
+  camera.on();   
   // image(mapbeta, 1000, 1000);
 }
 // function setup() {
