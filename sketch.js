@@ -24,9 +24,14 @@ function preload() {
 
 
 function setup() {
-  createCanvas(1000, 1000);
+  // createCanvas(1000, 1000);
   
   document.addEventListener("contextmenu", event => event.preventDefault());
+
+  let betamap = createImage(1000,1000);
+  betamap.loadPixels;
+  createCanvas(1000,1000);
+  background(0,0,0);
 
   let sceneW = width + width*0.2;
   let sceneH = height + height*0.2;
@@ -35,7 +40,7 @@ function setup() {
   //create a sprite and add the 3 animations
   dude = createSprite(400, 200, 50, 100);
 
-  let myAnimation = dude.addAnimation("moving", image1, image2);
+  let myAnimation = dude.addAnimation("moving", "assets/cheadle.jpg", image2);
   // myAnimation.offY = 18;
 
   dude.addAnimation("standing", "assets/testman.png");
@@ -109,8 +114,10 @@ function moveTest() {
 
 
 function draw() {
-  background(255,255,255);
-  image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
+  // background(255,255,255);
+  // image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
+
+  cameron();
 
   //mouse trailer, the speed is inversely proportional to the mouse distance
   // dude.velocity.x = (camera.mouseX-dude.position.x)/20;
@@ -121,32 +128,12 @@ function draw() {
   //a camera is created automatically at the beginning
 
   //.5 zoom is zooming out (50% of the normal size)
-  if(mouseIsPressed) {
-    if (mouseButton === RIGHT) {
-      camera.zoom = 0.1;
-    }
-  }
-  else {
-    camera.zoom = 0.5;
-  }
 
   //set the camera position to the dude position
-  camera.position.x = dude.position.x;
-  camera.position.y = dude.position.y;
+
 
   
-  if(dude.position.x < 0) {
-    dude.position.x = 0;
-  }
-  if(dude.position.y < 0) {
-    dude.position.y = 0;
-  }
-  if(dude.position.x > sceneW) {
-    dude.position.x = sceneW;
-  }
-  if(dude.position.y > sceneH) {
-    dude.position.y = sceneH;
-  }
+
 
   //draw the scene
   //rocks first
@@ -163,12 +150,30 @@ function draw() {
   //I can turn on and off the camera at any point to restore
   //the normal drawing coordinates, the frame will be drawn at
   //the absolute 0,0 (try to see what happens if you don't turn it off
-  camera.on();   
-  image(mapbeta, 1000, 1000);
+   
+  // image(mapbeta, 1000, 1000);
 }
 
 function cameron() {
-                                                                                                                                                                                                                                    
+  camera.on();
+
+  camera.zoom = 0.5;
+
+  camera.position.x = dude.position.x;
+  camera.position.y = dude.position.y;
+
+  if(dude.position.x < 0) {
+    dude.position.x = 0;
+  }
+  if(dude.position.y < 0) {
+    dude.position.y = 0;
+  }
+  if(dude.position.x > sceneW) {
+    dude.position.x = sceneW;
+  }
+  if(dude.position.y > sceneH) {
+    dude.position.y = sceneH;
+  }
 }
 // function setup() {
 //   createCanvas(800,400);
