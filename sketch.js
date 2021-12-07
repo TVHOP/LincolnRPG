@@ -7,6 +7,9 @@ let image2;
 let RUN1;
 let RUN2;
 
+let sceneW;
+let sceneH;
+
 let mapbeta;
 //the scene is twice the size of the canvas
 
@@ -107,7 +110,7 @@ function moveTest() {
 
 function draw() {
   background(255,255,255);
-  image(mapbeta,0,0,windowWidth,windowHeight);
+  image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
 
   //mouse trailer, the speed is inversely proportional to the mouse distance
   // dude.velocity.x = (camera.mouseX-dude.position.x)/20;
@@ -161,7 +164,11 @@ function draw() {
   //the normal drawing coordinates, the frame will be drawn at
   //the absolute 0,0 (try to see what happens if you don't turn it off
   camera.on();   
-  // image(mapbeta, 1000, 1000);
+  image(mapbeta, 1000, 1000);
+}
+
+function cameron() {
+                                                                                                                                                                                                                                    
 }
 // function setup() {
 //   createCanvas(800,400);
