@@ -10,6 +10,9 @@ let RUN2;
 let sceneW;
 let sceneH;
 
+let marginW;
+let marginH;
+
 let mapbeta;
 //the scene is twice the size of the canvas
 
@@ -28,25 +31,28 @@ function setup() {
   
   document.addEventListener("contextmenu", event => event.preventDefault());
 
-  let betamap = createImage(1000,1000);
+  let betamap = createImage(1500,1000);
   betamap.loadPixels;
-  createCanvas(1000,1000);
-  background(0,0,0);
+  createCanvas(windowWidth,windowHeight);
+  background(0,150,0);
 
   let sceneW = width + width*0.2;
   let sceneH = height + height*0.2;
+
+  marginW = width*0.4;
+  marginH = height*0.4;
 
 
   //create a sprite and add the 3 animations
   dude = createSprite(400, 200, 50, 100);
 
-  let myAnimation = dude.addAnimation("moving", "assets/cheadle.jpg", image2);
+  let myAnimation = dude.addAnimation("moving", image1, image2);
   // myAnimation.offY = 18;
 
   dude.addAnimation("standing", "assets/testman.png");
   dude.addAnimation("sprintleft", RUN1, RUN2);
+  cameron();
 
-  // bg = new Group();
 
   // create some background for visual reference
   // for(let i=0; i<80; i++) {
@@ -116,14 +122,17 @@ function moveTest() {
 function draw() {
   // background(255,255,255);
   // image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
+  background(255,0,150);
+  moveTest();
+  noStroke();
 
-  cameron();
+  
 
   //mouse trailer, the speed is inversely proportional to the mouse distance
   // dude.velocity.x = (camera.mouseX-dude.position.x)/20;
   // dude.velocity.y = (camera.mouseY-dude.position.y)/20;
 
-  moveTest();
+  
 
   //a camera is created automatically at the beginning
 
@@ -135,27 +144,19 @@ function draw() {
   
 
 
-  //draw the scene
-  //rocks first
-  drawSprites(bg);
 
-  //shadow using p5 drawing
-  noStroke();
-  fill(0, 0, 0, 20);
-  //shadow under dude
-  ellipse(dude.position.x, dude.position.y+90, 80, 30);
+  // drawSprites(bg);
+
+
+  
   //character on the top
   drawSprite(dude);
-
-  //I can turn on and off the camera at any point to restore
-  //the normal drawing coordinates, the frame will be drawn at
-  //the absolute 0,0 (try to see what happens if you don't turn it off
    
-  // image(mapbeta, 1000, 1000);
+  image(mapbeta, 836, 631);
 }
 
 function cameron() {
-  camera.on();
+  camera.off();
 
   camera.zoom = 0.5;
 
