@@ -51,7 +51,7 @@ function setup() {
 
   dude.addAnimation("standing", "assets/testman.png");
   dude.addAnimation("sprintleft", RUN1, RUN2);
-  cameron();
+  
 
 
   // create some background for visual reference
@@ -121,10 +121,11 @@ function moveTest() {
 
 function draw() {
   // background(255,255,255);
+  background(0,255,150);
   // image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
-  background(255,0,150);
   moveTest();
   noStroke();
+  cameron();
 
   
 
@@ -152,11 +153,11 @@ function draw() {
   //character on the top
   drawSprite(dude);
    
-  image(mapbeta, 836, 631);
+  image(mapbeta, windowWidth/2, windowHeight/2);
 }
 
 function cameron() {
-  camera.off();
+  camera.on();
 
   camera.zoom = 0.5;
 
