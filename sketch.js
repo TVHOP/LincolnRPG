@@ -119,11 +119,11 @@ function moveTest() {
 function draw() {
   // background(255,255,255);
   // background(0,255,150);
-  let betamap = createImage(1500,1000);
+  let betamap = createImage(1000,1000);
   betamap.loadPixels;
-  createCanvas(1500,2500);
+  createCanvas(windowWidth,windowHeight);
   background(0,150,0);
-  image(betamap, width/2, height/2);
+  image(betamap, windowWidth/2, windowHeight/2);
   
   // image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
   moveTest();
