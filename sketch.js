@@ -31,10 +31,7 @@ function setup() {
   
   document.addEventListener("contextmenu", event => event.preventDefault());
 
-  let betamap = createImage(1500,1000);
-  betamap.loadPixels;
-  createCanvas(windowWidth,windowHeight);
-  background(0,150,0);
+  
 
   let sceneW = width + width*0.2;
   let sceneH = height + height*0.2;
@@ -121,7 +118,13 @@ function moveTest() {
 
 function draw() {
   // background(255,255,255);
-  background(0,255,150);
+  // background(0,255,150);
+  let betamap = createImage(1500,1000);
+  betamap.loadPixels;
+  createCanvas(1500,2500);
+  background(0,150,0);
+  image(betamap, width/2, height/2);
+  
   // image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
   moveTest();
   noStroke();
@@ -157,7 +160,7 @@ function draw() {
 }
 
 function cameron() {
-  camera.on();
+  camera.off();
 
   camera.zoom = 0.5;
 
