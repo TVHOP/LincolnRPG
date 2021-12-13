@@ -123,11 +123,12 @@ function draw() {
   betamap.loadPixels;
   createCanvas(windowWidth,windowHeight);
   background(0,150,0);
-  image(betamap, windowWidth/2, windowHeight/2);
   
   // image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
   moveTest();
   noStroke();
+  imageMode(CENTER);
+  image(mapbeta, windowWidth/2, windowHeight/2 + 150);
   cameron();
 
   
@@ -154,13 +155,14 @@ function draw() {
 
   
   //character on the top
+  
   drawSprite(dude);
    
-  image(mapbeta, windowWidth/2, windowHeight/2);
+  
 }
 
 function cameron() {
-  camera.off();
+  camera.on();
 
   camera.zoom = 0.5;
 
