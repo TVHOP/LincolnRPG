@@ -115,52 +115,6 @@ function moveTest() {
   }
 }
 
-
-function draw() {
-  // background(255,255,255);
-  // background(0,255,150);
-  let betamap = createImage(1000,1000);
-  betamap.loadPixels;
-  createCanvas(windowWidth,windowHeight);
-  background(0,150,0);
-  
-  // image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
-  moveTest();
-  noStroke();
-  imageMode(CENTER);
-  image(mapbeta, windowWidth/2, windowHeight/2 + 150);
-  cameron();
-
-  
-
-  //mouse trailer, the speed is inversely proportional to the mouse distance
-  // dude.velocity.x = (camera.mouseX-dude.position.x)/20;
-  // dude.velocity.y = (camera.mouseY-dude.position.y)/20;
-
-  
-
-  //a camera is created automatically at the beginning
-
-  //.5 zoom is zooming out (50% of the normal size)
-
-  //set the camera position to the dude position
-
-
-  
-
-
-
-  // drawSprites(bg);
-
-
-  
-  //character on the top
-  
-  drawSprite(dude);
-   
-  
-}
-
 function cameron() {
   camera.on();
 
@@ -182,6 +136,27 @@ function cameron() {
     dude.position.y = sceneH;
   }
 }
+
+function draw() {
+  
+  createCanvas(1000,1000);
+  background(0,150,0);
+  
+  
+  // image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
+  moveTest();
+  noStroke();
+  imageMode(CENTER);
+  image(mapbeta, windowWidth/2, windowHeight/2 + 150);
+
+  // drawSprites(bg);
+  cameron();
+  
+  drawSprite(dude);
+
+}
+
+
 // function setup() {
 //   createCanvas(800,400);
 
