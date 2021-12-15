@@ -28,6 +28,8 @@ function preload() {
 
 function setup() {
   // createCanvas(1000, 1000);
+  createCanvas(windowWidth,windowHeight);
+  background(mapbeta);
   
   document.addEventListener("contextmenu", event => event.preventDefault());
 
@@ -35,6 +37,9 @@ function setup() {
 
   let sceneW = width + width*0.2;
   let sceneH = height + height*0.2;
+
+  let sceneA = width - width*0.2;
+  let sceneB = height - height*0.2;
 
   marginW = width*0.4;
   marginH = height*0.4;
@@ -118,7 +123,7 @@ function moveTest() {
 function cameron() {
   camera.on();
 
-  camera.zoom = 0.5;
+  camera.zoom = 0.10;
 
   camera.position.x = dude.position.x;
   camera.position.y = dude.position.y;
@@ -135,19 +140,20 @@ function cameron() {
   if(dude.position.y > sceneH) {
     dude.position.y = sceneH;
   }
+  
+  
 }
 
 function draw() {
-  
-  createCanvas(1000,1000);
-  background(0,150,0);
+  background(255,255,255);
+ 
   
   
   // image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
   moveTest();
   noStroke();
   imageMode(CENTER);
-  image(mapbeta, windowWidth/2, windowHeight/2 + 150);
+  image(mapbeta, windowWidth/2, windowHeight/2), windowWidth, windowHeight;
 
   // drawSprites(bg);
   cameron();
