@@ -123,7 +123,7 @@ function moveTest() {
 function cameron() {
   camera.on();
 
-  camera.zoom = 0.10;
+  camera.zoom = 0.5;
 
   camera.position.x = dude.position.x;
   camera.position.y = dude.position.y;
