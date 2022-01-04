@@ -17,8 +17,8 @@ let mapbeta;
 //the scene is twice the size of the canvas
 
 function preload() {
-  image1 = loadImage("assets/testman.png");
-  image2 = loadImage("assets/testman2.png");
+  image1 = loadImage("assets/750x750.png");
+  image2 = loadImage("assets/150x150.png");
   RUN1 = loadImage("assets/RUN_1.png");
   RUN2 = loadImage("assets/RUN_2.png");
   mapbeta = loadImage("assets/mapbeta1.png");
