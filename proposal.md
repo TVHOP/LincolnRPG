@@ -6,9 +6,7 @@ Top Down game based on the idea of Lincoln RPG.
 
 ## Must Have List
 
--Multiple Levels (About 5 would be good. Creating one massive map that holds 5 different levels in one place feasible?)
-
--A Story (Beginning, Middle, End. A purpose for the characters and what they are doing)
+-Fights (character vs enemy)
 
 -Start Screen and End Screen
 
@@ -24,5 +22,3 @@ Top Down game based on the idea of Lincoln RPG.
 -Enemies/Bosses
 
 -Cutscenes/Cinematic Moments??
-
--Different Storyline Characters (One player character, but different NPCs for you to interact with to some degree.)
