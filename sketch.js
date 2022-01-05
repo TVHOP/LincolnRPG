@@ -17,11 +17,11 @@ let mapbeta;
 //the scene is twice the size of the canvas
 
 function preload() {
-  image1 = loadImage("assets/750x750.png");
-  image2 = loadImage("assets/150x150.png");
+  image1 = loadImage("assets/player75x75.png");
+  image2 = loadImage("assets/player75x75.png");
   RUN1 = loadImage("assets/RUN_1.png");
   RUN2 = loadImage("assets/RUN_2.png");
-  mapbeta = loadImage("assets/mapbeta1.png");
+  mapbeta = loadImage("assets/400x400.png");
 }
 
 
@@ -121,24 +121,24 @@ function moveTest() {
 }
 
 function cameron() {
-  camera.on();
+  // camera.on();
 
-  camera.zoom = 0.5;
+  // camera.zoom = 0.5;
 
-  camera.position.x = dude.position.x;
-  camera.position.y = dude.position.y;
+  // camera.position.x = dude.position.x;
+  // camera.position.y = dude.position.y;
 
-  if(dude.position.x < 0) {
-    dude.position.x = 0;
+  if(dude.position.x < 15) {
+    dude.position.x = 15;
   }
-  if(dude.position.y < 0) {
-    dude.position.y = 0;
+  if(dude.position.y < 37) {
+    dude.position.y = 37;
   }
-  if(dude.position.x > sceneW) {
-    dude.position.x = sceneW;
+  if(dude.position.x > 1260) {
+    dude.position.x = 1260;
   }
-  if(dude.position.y > sceneH) {
-    dude.position.y = sceneH;
+  if(dude.position.y > 595) {
+    dude.position.y = 595;
   }
   
   
