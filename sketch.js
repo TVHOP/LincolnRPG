@@ -17,7 +17,7 @@ let mapbeta;
 //the scene is twice the size of the canvas
 
 function preload() {
-  image1 = loadImage("assets/player75x75.png");
+  image1 = loadImage("assets/Benedict - Stand Backward.png");
   image2 = loadImage("assets/player75x75.png");
   RUN1 = loadImage("assets/soy.png");
   RUN2 = loadImage("assets/soy.png");
@@ -48,7 +48,7 @@ function setup() {
   //create a sprite and add the 3 animations
   dude = createSprite(400, 200, 50, 100);
 
-  let myAnimation = dude.addAnimation("moving", image1, image2);
+  let myAnimation = dude.addAnimation("moving", image1);
   // myAnimation.offY = 18;
 
   dude.addAnimation("standing", "assets/Benedict - Stand.png");
