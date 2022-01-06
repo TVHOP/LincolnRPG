@@ -19,8 +19,8 @@ let mapbeta;
 function preload() {
   image1 = loadImage("assets/player75x75.png");
   image2 = loadImage("assets/player75x75.png");
-  RUN1 = loadImage("assets/RUN_1.png");
-  RUN2 = loadImage("assets/RUN_2.png");
+  RUN1 = loadImage("assets/soy.png");
+  RUN2 = loadImage("assets/soy.png");
   mapbeta = loadImage("assets/400x400.png");
 }
 
@@ -51,7 +51,7 @@ function setup() {
   let myAnimation = dude.addAnimation("moving", image1, image2);
   // myAnimation.offY = 18;
 
-  dude.addAnimation("standing", "assets/testman.png");
+  dude.addAnimation("standing", "assets/Benedict - Stand.png");
   dude.addAnimation("sprintleft", RUN1, RUN2);
   
 
