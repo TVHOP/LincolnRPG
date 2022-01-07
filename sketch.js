@@ -1,11 +1,9 @@
 
-let dude;
+let benedict;
 let bg;
 let frame;
 let image1;
 let image2;
-let RUN1;
-let RUN2;
 
 let sceneW;
 let sceneH;
@@ -13,15 +11,12 @@ let sceneH;
 let marginW;
 let marginH;
 
-let mapbeta;
+let boss_size;
 //the scene is twice the size of the canvas
 
 function preload() {
-  image1 = loadImage("assets/Benedict - Stand Backward.png");
-  image2 = loadImage("assets/player75x75.png");
-  RUN1 = loadImage("assets/soy.png");
-  RUN2 = loadImage("assets/soy.png");
-  mapbeta = loadImage("assets/400x400.png");
+  boss_size = loadImage("assets/400x400.png");
+  temp1 = loadImage("assets/soy.png");
 }
 
 
@@ -29,7 +24,7 @@ function preload() {
 function setup() {
   // createCanvas(1000, 1000);
   createCanvas(windowWidth,windowHeight);
-  background(mapbeta);
+  
   
   document.addEventListener("contextmenu", event => event.preventDefault());
 
@@ -46,13 +41,16 @@ function setup() {
 
 
   //create a sprite and add the 3 animations
-  dude = createSprite(400, 200, 50, 100);
+  benedict = createSprite(400, 200, 50, 100);
 
-  let myAnimation = dude.addAnimation("moving", image1);
+  // let myAnimation = benedict.addAnimation("moving", image1);
   // myAnimation.offY = 18;
 
-  dude.addAnimation("standing", "assets/Benedict - Stand.png");
-  dude.addAnimation("sprintleft", RUN1, RUN2);
+  benedict.addAnimation("standing", "assets/Benedict - Stand 100.png");
+  benedict.addAnimation("moveright", "assets/Benedict - right run 1 100.png", "assets/Benedict - right run 2 100.png");
+  benedict.addAnimation("moveleft", "assets/Benedict - left run 1 100.png", "assets/Benedict - left run 2 100.png")
+  benedict.addAnimation("moveforward", "assets/Benedict - Stand Backward 100.png")
+  benedict.addAnimation("movebackward", "assets/Benedict - Stand 100.png")
   
 
 
@@ -74,48 +72,48 @@ function moveTest() {
   //Up Movement, and Sprint Up Movement
   if (keyIsDown(87)) {
     if (keyIsDown(16)) {
-      dude.changeAnimation("moving");
-      dude.position.y -= 11;
+      benedict.changeAnimation("moveforward");
+      benedict.position.y -= 11;
       console.log("Wsprint");
     }
-    dude.changeAnimation("moving");
-    dude.position.y -= 7;
+    benedict.changeAnimation("moveforward");
+    benedict.position.y -= 7;
     console.log("w");
   }
   else {
-    dude.changeAnimation("standing");
+    benedict.changeAnimation("standing");
   }
   // Right Movement, and Sprint Right Movement
   if (keyIsDown(65)) {
     if (keyIsDown(16)) {
-      dude.changeAnimation("moving");
-      dude.position.x -= 11;
+      benedict.changeAnimation("moveleft");
+      benedict.position.x -= 11;
       console.log("Asprint");
     }
-    dude.changeAnimation("moving");
-    dude.position.x -= 7;
+    benedict.changeAnimation("moveleft");
+    benedict.position.x -= 7;
     console.log("a");
   }
   // Down Movement, and Sprint Down Movement
   if (keyIsDown(83)) {
     if (keyIsDown(16)) {
-      dude.changeAnimation("moving");
-      dude.position.y += 11;
+      benedict.changeAnimation("movebackward");
+      benedict.position.y += 11;
       console.log("Ssprint");
     }
-    dude.changeAnimation("moving");
-    dude.position.y += 7;
+    benedict.changeAnimation("movebackward");
+    benedict.position.y += 7;
     console.log("s");
   }
   // Left Movement, and Sprint Left Movement
   if (keyIsDown(68)) {
-    dude.changeAnimation("moving");
-    dude.position.x += 7;
+    benedict.changeAnimation("moveright");
+    benedict.position.x += 7;
     console.log("d");
   }
   if (keyIsDown(16) && keyIsDown(68)) {
-    dude.changeAnimation("sprintleft");
-    dude.position.x += 11;
+    benedict.changeAnimation("moveleft");
+    benedict.position.x += 11;
     console.log("Dsprint");
   }
 }
@@ -125,40 +123,41 @@ function cameron() {
 
   // camera.zoom = 0.5;
 
-  // camera.position.x = dude.position.x;
-  // camera.position.y = dude.position.y;
+  // camera.position.x = benedict.position.x;
+  // camera.position.y = benedict.position.y;
 
-  if(dude.position.x < 15) {
-    dude.position.x = 15;
+  if(benedict.position.x < 15) {
+    benedict.position.x = 15;
   }
-  if(dude.position.y < 37) {
-    dude.position.y = 37;
+  if(benedict.position.y < 37) {
+    benedict.position.y = 37;
   }
-  if(dude.position.x > 1260) {
-    dude.position.x = 1260;
+  if(benedict.position.x > 1260) {
+    benedict.position.x = 1260;
   }
-  if(dude.position.y > 595) {
-    dude.position.y = 595;
+  if(benedict.position.y > 595) {
+    benedict.position.y = 595;
   }
   
   
 }
 
 function draw() {
-  background(255,255,255);
+  background(50,255,255);
  
   
   
-  // image(mapbeta,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
+  // image(boss_size,windowWidth/2,windowHeight/2,windowWidth,windowHeight);
   moveTest();
   noStroke();
   imageMode(CENTER);
-  image(mapbeta, windowWidth/2, windowHeight/2), windowWidth, windowHeight;
+  image(boss_size, windowWidth/2, windowHeight/2), windowWidth, windowHeight;
+  image(temp1, 125, 200);
 
   // drawSprites(bg);
   cameron();
   
-  drawSprite(dude);
+  drawSprite(benedict);
 
 }
 
