@@ -12,7 +12,6 @@ let marginW;
 let marginH;
 
 let boss_size;
-//the scene is twice the size of the canvas
 
 function preload() {
   boss_size = loadImage("assets/400x400.png");
@@ -172,32 +171,14 @@ function draw() {
 // let gridSize = 100;
 // let cellWidth, cellHeight;
 
-// //images
-// let leafyGrass;
-// let houseRoof;
-// let stonePath;
-// let woodFloor;
-// let defaultLincoln;
 
-
-// let level1, level2, level3;
-// let state;
 
 // let playerX = 1;
 // let playerY = 0;
 
 // loads images and maps
 // function preload() {
-// level1 = loadJSON("assets/ANewDay.json");
-// level2 = loadJSON("assets/TheGloriousLegion.json");
-  
 
-
-//    leafyGrass = loadImage("assets/leafygrass.png");
-//    stonePath = loadImage("assets/stonepath.png");
-//    woodFloor = loadImage("assets/woodfloor.png");
-//    houseRoof = loadImage("assets/houseroof.png");
-//    defaultLincoln = loadImage("assets/defaultLincoln.jpg");
 // }
 
 
@@ -311,22 +292,6 @@ function draw() {
 // function displayGrid() {
 //   for (let y=0; y<gridSize; y++) {
 //     for (let x=0; x<gridSize; x++) {
-//       if (grid[y][x] === 0) {
-//         image(stonePath,x*cellWidth, y*cellHeight, cellWidth, cellHeight);
-//       }
-//       if (grid[y][x] === 1) {
-//         image(leafyGrass,x*cellWidth, y*cellHeight, cellWidth, cellHeight);      
-//       }
-//       if (grid[y][x] === 2) {
-//         image(houseRoof,x*cellWidth, y*cellHeight, cellWidth, cellHeight);
-//       }
-//       if (grid[y][x] === 3) {
-//         image(woodFloor,x*cellWidth, y*cellHeight, cellWidth, cellHeight);
-//       }
-//       if (grid[y][x] === 600) {
-//         image(defaultLincoln,x*cellWidth, y*cellHeight, cellWidth, cellHeight);
-//       }
-      
       
 //       strokeWeight(0.1);
 //     }
