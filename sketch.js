@@ -26,6 +26,7 @@ function preload() {
 function setup() {
   // createCanvas(1000, 1000);
   createCanvas(windowWidth,windowHeight);
+  createBenedict();
   
   
   document.addEventListener("contextmenu", event => event.preventDefault());
@@ -43,18 +44,13 @@ function setup() {
 
 
   //create a sprite and add the 3 animations
-  benedict = createSprite(400, 200, 50, 100);
+  
   benevolent = createSprite(windowWidth/2, windowHeight/2, windowWidth, windowHeight);
 
   // let myAnimation = benedict.addAnimation("moving", image1);
   // myAnimation.offY = 18;
 
-  benedict.addAnimation("standing", "assets/Benedict - Stand 100.png");
-  benedict.addAnimation("moveright", "assets/Benedict - right run 1 100.png", "assets/Benedict - right run 2 100.png");
-  benedict.addAnimation("moveleft", "assets/Benedict - left run 1 100.png", "assets/Benedict - left run 2 100.png");
-  benedict.addAnimation("moveforward", "assets/Benedict - Stand Backward 100.png");
-  benedict.addAnimation("movebackward", "assets/Benedict - Stand 100.png");
-
+  
   benevolent.addAnimation("Idle", "assets/tempimage.png");
   
 
@@ -168,58 +164,69 @@ function draw() {
 
 }
 
-let bullets = [];
-let playerX;
-let playerY;
+function createBenedict() {
+  benedict = createSprite(400, 200, 50, 100);
 
+  benedict.addAnimation("standing", "assets/Benedict - Stand 100.png");
+  benedict.addAnimation("moveright", "assets/Benedict - right run 1 100.png", "assets/Benedict - right run 2 100.png");
+  benedict.addAnimation("moveleft", "assets/Benedict - left run 1 100.png", "assets/Benedict - left run 2 100.png");
+  benedict.addAnimation("moveforward", "assets/Benedict - Stand Backward 100.png");
+  benedict.addAnimation("movebackward", "assets/Benedict - Stand 100.png");
 
-
-  createCanvas(windowWidth, windowHeight);
-  playerX = width/2;
-  playerY = height/2;
 }
 
-
-  background(220);
-  displayPlayer();
-  handleBullets();
-}
-
-function displayPlayer() {
-  fill("black");
-  ellipse(playerX, playerY, 75, 75);
-}
-
-function handleBullets() {
-  for (let bullet of bullets) {
-    bullet.x += bullet.dx;
-    bullet.y += bullet.dy;
-
-    fill("red");
-    ellipse(bullet.x, bullet.y, bullet.radius*2);
-  }
-}
-
-function spawnBullet() {
-  let xDiff = mouseX - playerX;
-  let yDiff = mouseY - playerY;
-  let xSpeed = map(xDiff, -width/2, width/2, -10, 10);
-  let ySpeed = map(yDiff, -height/2, height/2, -10, 10);
+// let bullets = [];
+// let playerX;
+// let playerY;
 
 
-  let bullet = {
-    x: playerX,
-    y: playerY,
-    radius: 20,
-    dx: xSpeed,
-    dy: ySpeed,
-  };
-  bullets.push(bullet);
-}
 
-function mousePressed() {
-  spawnBullet();
-}
+//   createCanvas(windowWidth, windowHeight);
+//   playerX = width/2;
+//   playerY = height/2;
+// }
+
+
+//   background(220);
+//   displayPlayer();
+//   handleBullets();
+// }
+
+// function displayPlayer() {
+//   fill("black");
+//   ellipse(playerX, playerY, 75, 75);
+// }
+
+// function handleBullets() {
+//   for (let bullet of bullets) {
+//     bullet.x += bullet.dx;
+//     bullet.y += bullet.dy;
+
+//     fill("red");
+//     ellipse(bullet.x, bullet.y, bullet.radius*2);
+//   }
+// }
+
+// function spawnBullet() {
+//   let xDiff = mouseX - playerX;
+//   let yDiff = mouseY - playerY;
+//   let xSpeed = map(xDiff, -width/2, width/2, -10, 10);
+//   let ySpeed = map(yDiff, -height/2, height/2, -10, 10);
+
+
+//   let bullet = {
+//     x: playerX,
+//     y: playerY,
+//     radius: 20,
+//     dx: xSpeed,
+//     dy: ySpeed,
+//   };
+//   bullets.push(bullet);
+// }
+
+// function mousePressed() {
+//   spawnBullet();
+// }
 
 
 // function setup() {
