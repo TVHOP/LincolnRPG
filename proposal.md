@@ -8,7 +8,7 @@ Top Down game based on the idea of Lincoln RPG.
 
 -Fights (character vs enemy)
 
--Start Screen and End Screen
+-Start Screen
 
 -Music
 
