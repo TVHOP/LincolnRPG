@@ -63,6 +63,8 @@ function draw() {
   testGun();
   createBullets();
 
+  collideControl();
+
 }
 //---------------------------------------------------------------------------------------------------------//
 //Summons Benedict and creates his animations. Name and appearance are references to https://www.destinypedia.com/Benedict_99-40
@@ -74,12 +76,16 @@ function createBenedict() {
   benedict.addAnimation("moveleft", "assets/Benedict - left run 1 100.png", "assets/Benedict - left run 2 100.png");
   benedict.addAnimation("moveforward", "assets/Benedict - Stand Backward 100.png");
   benedict.addAnimation("movebackward", "assets/Benedict - Stand 100.png");
+
+  benedict.setCollider("rectangle", 0, 0, width/2, height/2);
 }
 //---------------------------------------------------------------------------------------------------------//
 //Summons ZES and creates his animations. Name and appearance are references to https://scp-wiki.wikidot.com/scp-087
 function createZES() {
-  ZES = createSprite(windowWidth/2, windowHeight/2, windowWidth, windowHeight);
+  ZES = createSprite(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight);
   ZES.addAnimation("Idle", "assets/tempimage.png");
+
+  ZES.setCollider("circle", 0, 0, 25);
 }
 //---------------------------------------------------------------------------------------------------------//
 function createBullets(type) {
@@ -167,6 +173,12 @@ function borderlands() {
   }
 }
 //---------------------------------------------------------------------------------------------------------//
+function collideControl() {
+  benedict.overlap(ZES, bounceControl);
+}
 
+function bounceControl(benedict, ZES) {
+  benedict.bounce(ZES);
+}
 
 
