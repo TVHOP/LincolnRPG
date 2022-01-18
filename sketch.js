@@ -1,6 +1,8 @@
-
+//Untitled
+//---------------------------------------------------------------------------------------------------------//
+//Global Variables
 let benedict;
-let benevolent;
+let ZES;
 let bg;
 let frame;
 let image1;
@@ -22,15 +24,14 @@ let boss_size;
 //--------------------------------------------------------------------------------------------------------//
 function preload() {
   boss_size = loadImage("assets/400x400.png");
-  temp1 = loadImage("assets/soy.png");
   bulletsImg = loadImage("assets/soy.png");
 }
 //--------------------------------------------------------------------------------------------------------//
-
-
+//Setup Function
 function setup() {
   createCanvas(windowWidth,windowHeight);
   createBenedict();
+  createZES();
   document.addEventListener("contextmenu", event => event.preventDefault());
 
   let sceneW = width + width*0.2;
@@ -40,33 +41,31 @@ function setup() {
 
   marginW = width*0.4;
   marginH = height*0.4;
-  
-  benevolent = createSprite(windowWidth/2, windowHeight/2, windowWidth, windowHeight);
-
-  benevolent.addAnimation("Idle", "assets/tempimage.png");
 
   // playerBullets = new Group();
   
 }
 //--------------------------------------------------------------------------------------------------------//
+//Draw Loop
 function draw() {
   background("black");
 
-  moveTest();
-  noStroke();
+  WASDcontrol();
   imageMode(CENTER);
   
-  cameron();
+  borderlands();
 
   drawSprite(playerBullets);
   drawSprite(benedict);
-  drawSprite(benevolent);
+  drawSprite(ZES);
   
 
   testGun();
   createBullets();
 
 }
+//---------------------------------------------------------------------------------------------------------//
+//Summons Benedict and creates his animations. Name and appearance are references to https://www.destinypedia.com/Benedict_99-40
 function createBenedict() {
   benedict = createSprite(400, 200, 50, 100);
 
@@ -75,8 +74,14 @@ function createBenedict() {
   benedict.addAnimation("moveleft", "assets/Benedict - left run 1 100.png", "assets/Benedict - left run 2 100.png");
   benedict.addAnimation("moveforward", "assets/Benedict - Stand Backward 100.png");
   benedict.addAnimation("movebackward", "assets/Benedict - Stand 100.png");
-
 }
+//---------------------------------------------------------------------------------------------------------//
+//Summons ZES and creates his animations. Name and appearance are references to https://scp-wiki.wikidot.com/scp-087
+function createZES() {
+  ZES = createSprite(windowWidth/2, windowHeight/2, windowWidth, windowHeight);
+  ZES.addAnimation("Idle", "assets/tempimage.png");
+}
+//---------------------------------------------------------------------------------------------------------//
 function createBullets(type) {
   if (type === "player"){
     let bullet = createSprite(benedict.position.x, benedict.position.y);
@@ -94,8 +99,8 @@ function testGun() {
   }
 }
 //---------------------------------------------------------------------------------------------------------//
-
-function moveTest() {
+//The code that allows Benedict to move around. Standard WASD + Shift.
+function WASDcontrol() {
   //Up Movement, and Sprint Up Movement
   if (keyIsDown(87)) {
     if (keyIsDown(16)) {
@@ -139,25 +144,26 @@ function moveTest() {
     console.log("d");
   }
   if (keyIsDown(16) && keyIsDown(68)) {
-    benedict.changeAnimation("moveleft");
+    benedict.changeAnimation("moveright");
     benedict.position.x += 11;
     console.log("Dsprint");
   }
-  benevolent.changeAnimation("Idle");
+  ZES.changeAnimation("Idle");
 }
 //---------------------------------------------------------------------------------------------------------//
-function cameron() {
+//Defines the borders of the play area and does not allow Benedict to go past it. Named after a popular game I didn't enjoy.
+function borderlands() {
   if(benedict.position.x < 15) {
     benedict.position.x = 15;
   }
   if(benedict.position.y < 37) {
     benedict.position.y = 37;
   }
-  if(benedict.position.x > 1260) {
-    benedict.position.x = 1260;
+  if(benedict.position.x > 1590) {
+    benedict.position.x = 1590;
   }
-  if(benedict.position.y > 595) {
-    benedict.position.y = 595;
+  if(benedict.position.y > 755) {
+    benedict.position.y = 755;
   }
 }
 //---------------------------------------------------------------------------------------------------------//
