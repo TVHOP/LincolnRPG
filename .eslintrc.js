@@ -54,6 +54,7 @@ module.exports = {
       "createAnimation": true,
       "camera.zoom": true,
       "Group": true,
+      "add": true,
 
 
 
