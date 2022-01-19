@@ -55,6 +55,8 @@ module.exports = {
       "camera.zoom": true,
       "Group": true,
       "add": true,
+      "no-unused-vars": off,
+      "no-undef": off,
 
 
 

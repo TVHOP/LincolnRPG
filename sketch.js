@@ -10,7 +10,7 @@ let image2;
 
 let bulletsImg;
 let bulletLife = 40;
-let playerBullets;
+
 
 let temp1;
 
@@ -42,7 +42,9 @@ function setup() {
   marginW = width*0.4;
   marginH = height*0.4;
 
-  // playerBullets = new Group();
+  benedict.position.x = width/2;
+  benedict.position.y = height/2;
+
   
 }
 //--------------------------------------------------------------------------------------------------------//
@@ -55,7 +57,7 @@ function draw() {
   
   borderlands();
 
-  drawSprite(playerBullets);
+  // drawSprite(playerBullets);
   drawSprite(benedict);
   drawSprite(ZES);
   
@@ -64,6 +66,9 @@ function draw() {
   createBullets();
 
   collideControl();
+
+  
+  handleBullets();
 
 }
 //---------------------------------------------------------------------------------------------------------//
@@ -95,6 +100,7 @@ function createBullets(type) {
     bullet.life = bulletLife;
     bullet.rotateToDirection = true;
     bullet.setSpeed(benedict.getSpeed()+6, benedict.rotation);
+    bullet.debug = debugMode;
     playerBullets.add(playerBullets);
   }    
 }
@@ -179,6 +185,41 @@ function collideControl() {
 
 function bounceControl(benedict, ZES) {
   benedict.bounce(ZES);
+}
+//---------------------------------------------------------------------------------------------------------//
+let bullets = [];
+// let playerBullets = [];
+
+
+function handleBullets() {
+  for (let bullet of bullets) {
+    bullet.x += bullet.dx;
+    bullet.y += bullet.dy;
+
+    fill("yellow");
+    ellipse(bullet.x, bullet.y, bullet.radius);
+  }
+}
+
+function spawnBullet() {
+  let xDiff = mouseX - benedict.position.x;
+  let yDiff = mouseY - benedict.position.y;
+  let xSpeed = map(xDiff, -width/2, width/2, -10, 10);
+  let ySpeed = map(yDiff, -height/2, height/2, -10, 10);
+
+
+  let bullet = {
+    x: benedict.position.x,
+    y: benedict.position.y,
+    radius: 20,
+    dx: xSpeed,
+    dy: ySpeed,
+  };
+  bullets.push(bullet);
+}
+
+function mousePressed() {
+  spawnBullet();
 }
 
 
