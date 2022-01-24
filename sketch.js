@@ -11,6 +11,7 @@ let image2;
 let bulletsImg;
 let bulletLife = 40;
 
+let bullet;
 
 let temp1;
 
@@ -70,6 +71,8 @@ function draw() {
   
   handleBullets();
 
+  
+  // console.log(mouseX, mouseY);
 }
 //---------------------------------------------------------------------------------------------------------//
 //Summons Benedict and creates his animations. Name and appearance are references to https://www.destinypedia.com/Benedict_99-40
@@ -198,6 +201,8 @@ function handleBullets() {
 
     fill("yellow");
     ellipse(bullet.x, bullet.y, bullet.radius);
+
+   
   }
 }
 
@@ -216,10 +221,13 @@ function spawnBullet() {
     dy: ySpeed,
   };
   bullets.push(bullet);
+  if (bullet.x >= 240 && bullet.x <= 700) {
+    console.log("nuts");
+  }
+
 }
 
 function mousePressed() {
   spawnBullet();
 }
-
 
