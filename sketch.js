@@ -12,7 +12,7 @@ let bulletsImg;
 let bulletLife = 40;
 
 let bullet;
-
+let laserbeam;
 let temp1;
 
 let sceneW;
@@ -26,6 +26,8 @@ let boss_size;
 function preload() {
   boss_size = loadImage("assets/400x400.png");
   bulletsImg = loadImage("assets/soy.png");
+  laserbeam = loadImage("assets/powpow.png");
+
 }
 //--------------------------------------------------------------------------------------------------------//
 //Setup Function
@@ -70,6 +72,7 @@ function draw() {
 
   
   handleBullets();
+
 
   
   // console.log(mouseX, mouseY);
@@ -200,7 +203,7 @@ function handleBullets() {
     bullet.y += bullet.dy;
 
     fill("yellow");
-    ellipse(bullet.x, bullet.y, bullet.radius);
+    image( laserbeam,bullet.x, bullet.y, bullet.radius);
 
    
   }
@@ -221,10 +224,6 @@ function spawnBullet() {
     dy: ySpeed,
   };
   bullets.push(bullet);
-  if (bullet.x >= 240 && bullet.x <= 700) {
-    console.log("nuts");
-  }
-
 }
 
 function mousePressed() {
