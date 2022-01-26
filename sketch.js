@@ -25,10 +25,13 @@ let marginH;
 
 let boss_size;
 
+let epicmusic;
+
 //--------------------------------------------------------------------------------------------------------//
 function preload() {
   boss_size = loadImage("assets/400x400.png");
   laserbeam = loadImage("assets/powpow.png");
+  epicmusic = loadSound("assets/superepicsong.mp3.mp3");
 
 }
 //--------------------------------------------------------------------------------------------------------//
@@ -37,9 +40,9 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
   document.addEventListener("contextmenu", event => event.preventDefault());
 
-  if (state === 2) {
-    createBenedict();
-    createZES();
+  
+  createBenedict();
+  createZES();
 
   let sceneW = width + width*0.2;
   let sceneH = height + height*0.2;
@@ -52,14 +55,12 @@ function setup() {
   benedict.position.x = width/2;
   benedict.position.y = height/2;
 
-  bgButton = new Button(100, 300, 600, 150,"red","blue");
-  shapeButton = new Button(100,100,600,150,"yellow","green");
-  }
-
-  
-
-  
 }
+
+  
+
+  
+
 //--------------------------------------------------------------------------------------------------------//
 //Draw Loop
 function draw() {
@@ -84,7 +85,9 @@ function draw() {
 
   startScreen();
 
-  mousePressed();
+  superMusic();
+
+
 
   
   // console.log(mouseX, mouseY);
@@ -106,7 +109,7 @@ function createBenedict() {
 //Summons ZES and creates his animations. Name and appearance are references to https://scp-wiki.wikidot.com/scp-087
 function createZES() {
   ZES = createSprite(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight);
-  ZES.addAnimation("Idle", "assets/tempimage.png");
+  ZES.addAnimation("Idle", "assets/Benevolent Idle 1.png", "assets/Benevolent Idle 2.png");
 
   ZES.setCollider("circle", 0, 0, 25);
 }
@@ -255,7 +258,13 @@ function startScreen() {
     textAlign(CENTER);
     textSize(100);
     fill("white");
-    text("testing", windowWidth/2, 150);
+    text("try to pretend this is like, really cool", windowWidth/2, 150);
+  }
+}
+
+function superMusic() {
+  if (state === 1) {
+    epicmusic.play();
   }
 }
 
